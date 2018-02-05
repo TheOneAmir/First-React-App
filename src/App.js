@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+class Triangle extends Component{
+	constructor(props){
+		
+	}
+}
+
 class App extends Component {
   render() {
 	var pascal = [[0,1,0],[1,0,1]];
@@ -26,7 +32,18 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save this file to reload.
         </p>
-		  <table>{rows}</table>
+		  <table>
+			<tr>
+				<td>0</td>
+				<td>1</td>
+				<td>0</td>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>0</td>
+				<td>1</td>
+			</tr>
+		  </table>
       </div>
     );
   }
