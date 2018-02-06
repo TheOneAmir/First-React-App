@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-class Triangle extends Component{
+class Triangle extends React.Component{
 	constructor(props){
+		super();
+		this.state = {size:props.size};
+		this.generateRows = this.generateRows.bind();
+	}
+	
+	generateRows(){
 		
 	}
 }
