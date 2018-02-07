@@ -5,12 +5,30 @@ import './App.css';
 class Triangle extends React.Component{
 	constructor(props){
 		super();
-		this.state = {size:props.size};
 		this.generateRows = this.generateRows.bind();
 	}
 	
 	generateRows(){
-		
+		return;
+	}
+	
+	render(){
+		var rows = [[0,0,0,1,0,0,0],[0,0,1,0,1,0,0],[0,1,0,2,0,1,0],[1,0,3,0,3,0,1]];
+		return (
+			<table className="PascalTriangle">
+				<thead>
+				</thead>
+				<tbody>
+					{rows.map((row, i) =>
+						<tr key={i}>
+							{row.map((col, j) =>
+								<td key={j}>{col}</td>
+							)}
+						</tr>
+					)}
+				</tbody>
+			</table>
+		);
 	}
 }
 
@@ -50,6 +68,7 @@ class App extends Component {
 				<td>1</td>
 			</tr>
 		  </table>
+		  <Triangle />
       </div>
     );
   }
