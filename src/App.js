@@ -22,7 +22,7 @@ class Triangle extends React.Component{
 					{rows.map((row, i) =>
 						<tr key={i}>
 							{row.map((col, j) =>
-								<td key={j}>{col}</td>
+								<td class="Num-value" key={j}>{col}</td>
 							)}
 						</tr>
 					)}

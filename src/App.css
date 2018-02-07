@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: #222;
+  height: fill;
 }
 
 .App-logo {
@@ -20,6 +22,10 @@
 
 .App-intro {
   font-size: large;
+}
+
+.Num-value {
+	color: white;
 }
 
 @keyframes App-logo-spin {
