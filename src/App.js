@@ -13,13 +13,13 @@ class Triangle extends React.Component{
 	}
 	
 	render(){
-		var rows = [[0,0,0,1,0,0,0],[0,0,1,0,1,0,0],[0,1,0,2,0,1,0],[1,0,3,0,3,0,1]];
+		//var rows = [[0,0,0,0,1,0,0,0,0],[0,0,0,1,0,1,0,0,0],[0,0,1,0,2,0,1,0,0],[0,1,0,3,0,3,0,1,0],[1,0,4,0,6,0,4,0,1]];
 		return (
-			<table className="PascalTriangle">
+			<table class="Pascals">
 				<thead>
 				</thead>
 				<tbody>
-					{rows.map((row, i) =>
+					{this.props.rows.map((row, i) =>
 						<tr key={i}>
 							{row.map((col, j) =>
 								<td class="Num-value" key={j}>{col}</td>
@@ -34,7 +34,8 @@ class Triangle extends React.Component{
 
 class App extends Component {
   render() {
-	var pascal = [[0,1,0],[1,0,1]];
+	var pascal = [[1,1,1,1,1,1,1,1,1],[1,2,3,4,5,6,7,8,9],[1,3,6,10,15,21,28,36,45],[1,4,10,20,35,56,84,120,165],[1,5,15,35,91,175,259,379,544]];;
+	var pascal2 = [[0,0,0,0,1,0,0,0,0],[0,0,0,1,0,1,0,0,0],[0,0,1,0,2,0,1,0,0],[0,1,0,3,0,3,0,1,0],[1,0,4,0,6,0,4,0,1]];
 	console.log(pascal.length);
 	var rows = "";
 	
@@ -51,7 +52,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Pascal's Triangle</h1>
         </header>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save this file to reload.
@@ -68,7 +69,8 @@ class App extends Component {
 				<td>1</td>
 			</tr>
 		  </table>
-		  <Triangle />
+		  <Triangle rows={pascal}/>
+		  <Triangle rows={pascal2}/>
       </div>
     );
   }
