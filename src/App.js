@@ -51,26 +51,11 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Pascal's Triangle</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save this file to reload.
-        </p>
-		  <table>
-			<tr>
-				<td>0</td>
-				<td>1</td>
-				<td>0</td>
-			</tr>
-			<tr>
-				<td>1</td>
-				<td>0</td>
-				<td>1</td>
-			</tr>
-		  </table>
-		  <Triangle rows={pascal}/>
-		  <Triangle rows={pascal2}/>
+		  <Triangle ref="squareForm" rows={pascal}/>
+		  <br/>
+		  <Triangle ref="triangleForm" rows={pascal2}/>
       </div>
     );
   }

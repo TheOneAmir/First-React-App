@@ -11,12 +11,13 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 130px;
   padding: 20px;
   color: white;
 }
 
 .App-title {
+  margin-top:40px;
   font-size: 1.5em;
 }
 
@@ -31,6 +32,9 @@
 
 .Num-value {
 	color: white;
+	font-size: 1.5em;
+	width: 48px;
+	height: 50px;
 }
 
 @keyframes App-logo-spin {
