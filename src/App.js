@@ -24,8 +24,8 @@ class UserControls extends React.Component{
 	render() {
 		return(
 			<div>
-				<ReactButton onBClick={this.toggleForm}/>
-				<Triangle rows={this.state.isTriangleForm ? this.state.squareForm : this.state.triangleForm}/>
+				<button className="Toggle-Button" onClick={this.toggleForm}>{this.state.isTriangleForm ? "Square Form" : "Triangle Form"}</button>
+				<Triangle rows={this.state.isTriangleForm ? this.state.triangleForm : this.state.squareForm}/>
 			</div>
 		);
 	}
@@ -65,7 +65,7 @@ class Triangle extends React.Component{
 	}
 	
 	render(){
-		console.log(this.prop.rows);
+		//console.log(this.prop.rows);
 		//var rows = [[0,0,0,0,1,0,0,0,0],[0,0,0,1,0,1,0,0,0],[0,0,1,0,2,0,1,0,0],[0,1,0,3,0,3,0,1,0],[1,0,4,0,6,0,4,0,1]];
 		return (
 			<table className="Pascals">
@@ -75,7 +75,7 @@ class Triangle extends React.Component{
 					{this.props.rows.map((row, i) =>
 						<tr key={i}>
 							{row.map((col, j) =>
-								<td className="Num-value" key={j}>{col}</td>
+								<td className="Num-value" key={j}>{col ? col : ''}</td>
 							)}
 						</tr>
 					)}
