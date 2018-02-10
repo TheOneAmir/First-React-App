@@ -2,6 +2,35 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+class UserControls extends React.Component{
+	constructor(props){
+		super(props);
+		this.state={
+			isTriangleForm: false,		
+			squareForm: [[1,1,1,1,1,1,1,1,1],[1,2,3,4,5,6,7,8,9],[1,3,6,10,15,21,28,36,45],[1,4,10,20,35,56,84,120,165],[1,5,15,35,91,175,259,379,544]],
+			triangleForm: [[0,0,0,0,1,0,0,0,0],[0,0,0,1,0,1,0,0,0],[0,0,1,0,2,0,1,0,0],[0,1,0,3,0,3,0,1,0],[1,0,4,0,6,0,4,0,1]]
+		}
+		
+		this.toggleForm = this.toggleForm.bind(this);
+		
+	}
+	
+	toggleForm() {
+		this.setState(prevState => ({
+			isTriangleForm: !prevState.isTriangleForm
+		}));
+	}
+	
+	render() {
+		return(
+			<div>
+				<ReactButton onBClick={this.toggleForm}/>
+				<Triangle rows={this.state.isTriangleForm ? this.state.squareForm : this.state.triangleForm}/>
+			</div>
+		);
+	}
+}
+
 class ReactButton extends React.Component{
 	constructor(props){
 		super(props);
@@ -36,6 +65,7 @@ class Triangle extends React.Component{
 	}
 	
 	render(){
+		console.log(this.prop.rows);
 		//var rows = [[0,0,0,0,1,0,0,0,0],[0,0,0,1,0,1,0,0,0],[0,0,1,0,2,0,1,0,0],[0,1,0,3,0,3,0,1,0],[1,0,4,0,6,0,4,0,1]];
 		return (
 			<table className="Pascals">
@@ -57,29 +87,12 @@ class Triangle extends React.Component{
 
 class App extends Component {
   render() {
-	var pascal = [[1,1,1,1,1,1,1,1,1],[1,2,3,4,5,6,7,8,9],[1,3,6,10,15,21,28,36,45],[1,4,10,20,35,56,84,120,165],[1,5,15,35,91,175,259,379,544]];;
-	var pascal2 = [[0,0,0,0,1,0,0,0,0],[0,0,0,1,0,1,0,0,0],[0,0,1,0,2,0,1,0,0],[0,1,0,3,0,3,0,1,0],[1,0,4,0,6,0,4,0,1]];
-	console.log(pascal.length);
-	var rows = "";
-	
-	  for(var i = 0; i < pascal.length; i++){
-		  rows += "<tr>\n";
-		  for(var j = 0; j<pascal[i].length; j++){
-			  rows += "<td>";
-			  rows += pascal[i][j];
-			  rows += "</td>";
-		  }
-		  rows += "</tr>";
-	  }
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Pascal's Triangle</h1>
         </header>
-		  <ReactButton />
-		  <Triangle ref="squareForm" rows={pascal}/>
-		  <br/>
-		  <Triangle ref="triangleForm" rows={pascal2}/>
+		  <UserControls />
       </div>
     );
   }
